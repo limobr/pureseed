@@ -1,0 +1,304 @@
+[
+ {
+  "file": "hero.jpg",
+  "w": 1600,
+  "h": 1200,
+  "orientation": "landscape",
+  "query": "nuts seeds honey bowls flat lay",
+  "queries": [
+   "nuts seeds honey bowls flat lay",
+   "mixed nuts bowl",
+   "honey and nuts",
+   "healthy food flat lay"
+  ]
+ },
+ {
+  "file": "sesame-seeds.jpg",
+  "w": 1000,
+  "h": 1000,
+  "orientation": "square",
+  "query": "sesame seeds white background",
+  "queries": [
+   "sesame seeds",
+   "sesame seed",
+   "sesame"
+  ]
+ },
+ {
+  "file": "sesame-oil.jpg",
+  "w": 1000,
+  "h": 1000,
+  "orientation": "square",
+  "query": "sesame oil bottle",
+  "queries": [
+   "sesame oil",
+   "oil bottle",
+   "sesame"
+  ]
+ },
+ {
+  "file": "cashew-nuts.png",
+  "w": 1000,
+  "h": 1000,
+  "orientation": "square",
+  "query": "cashew nuts white background",
+  "queries": [
+   "cashew nuts",
+   "cashews",
+   "cashew"
+  ]
+ },
+ {
+  "file": "groundnuts.png",
+  "w": 1000,
+  "h": 1000,
+  "orientation": "square",
+  "query": "peanuts white background",
+  "queries": [
+   "peanuts",
+   "groundnuts",
+   "peanut"
+  ]
+ },
+ {
+  "file": "organic-honey.png",
+  "w": 1000,
+  "h": 1000,
+  "orientation": "square",
+  "query": "honey jar dipper",
+  "queries": [
+   "honey jar",
+   "honey",
+   "honeycomb"
+  ]
+ },
+ {
+  "file": "sesame-seeds-field.jpg",
+  "w": 1600,
+  "h": 700,
+  "orientation": "landscape",
+  "query": "sesame field harvest",
+  "queries": [
+   "sesame field",
+   "sesame plant",
+   "sesame farm",
+   "sesame"
+  ]
+ },
+ {
+  "file": "sesame-oil-pressing.jpg",
+  "w": 1600,
+  "h": 700,
+  "orientation": "landscape",
+  "query": "oil pressing production",
+  "queries": [
+   "oil press",
+   "oil mill",
+   "cooking oil factory",
+   "olive oil pressing"
+  ]
+ },
+ {
+  "file": "cashew-nuts-processing.jpg",
+  "w": 1600,
+  "h": 700,
+  "orientation": "landscape",
+  "query": "cashew processing factory",
+  "queries": [
+   "cashew processing",
+   "cashew factory",
+   "cashew workers",
+   "cashew"
+  ]
+ },
+ {
+  "file": "groundnuts-harvest.jpg",
+  "w": 1600,
+  "h": 700,
+  "orientation": "landscape",
+  "query": "groundnut harvest africa",
+  "queries": [
+   "groundnut harvest",
+   "peanut harvest",
+   "peanut farm",
+   "peanuts africa"
+  ]
+ },
+ {
+  "file": "organic-honey-apiary.jpg",
+  "w": 1600,
+  "h": 700,
+  "orientation": "landscape",
+  "query": "beekeeper hive honey",
+  "queries": [
+   "beekeeper",
+   "apiary",
+   "beehive",
+   "honey harvest"
+  ]
+ },
+ {
+  "file": "service-sourcing.jpg",
+  "w": 1600,
+  "h": 800,
+  "orientation": "landscape",
+  "query": "farmer hands holding nuts",
+  "queries": [
+   "farmer hands",
+   "farmer harvest",
+   "african farmer",
+   "farmers market"
+  ]
+ },
+ {
+  "file": "service-bulk.jpg",
+  "w": 1600,
+  "h": 800,
+  "orientation": "landscape",
+  "query": "warehouse sacks pallets",
+  "queries": [
+   "warehouse",
+   "sacks",
+   "grain sacks",
+   "storage warehouse"
+  ]
+ },
+ {
+  "file": "service-processing.jpg",
+  "w": 1600,
+  "h": 800,
+  "orientation": "landscape",
+  "query": "food factory conveyor",
+  "queries": [
+   "food factory",
+   "factory conveyor",
+   "food processing",
+   "factory production line"
+  ]
+ },
+ {
+  "file": "service-quality.jpg",
+  "w": 1600,
+  "h": 800,
+  "orientation": "landscape",
+  "query": "food quality inspection laboratory",
+  "queries": [
+   "quality control food",
+   "laboratory",
+   "food inspection",
+   "scientist laboratory"
+  ]
+ },
+ {
+  "file": "service-packaging.jpg",
+  "w": 1600,
+  "h": 800,
+  "orientation": "landscape",
+  "query": "food packaging machine",
+  "queries": [
+   "packaging machine",
+   "food packaging",
+   "packaging line",
+   "packaging"
+  ]
+ },
+ {
+  "file": "service-private-label.jpg",
+  "w": 1600,
+  "h": 800,
+  "orientation": "landscape",
+  "query": "packaging mockup jars pouches",
+  "queries": [
+   "packaging jars",
+   "food packaging jars",
+   "jar labels",
+   "packaging"
+  ]
+ },
+ {
+  "file": "service-export.jpg",
+  "w": 1600,
+  "h": 800,
+  "orientation": "landscape",
+  "query": "container ship port",
+  "queries": [
+   "container ship",
+   "cargo port",
+   "shipping containers",
+   "port"
+  ]
+ },
+ {
+  "file": "service-sourcing-origin.jpg",
+  "w": 900,
+  "h": 630,
+  "orientation": "landscape",
+  "query": "aerial farmland africa",
+  "queries": [
+   "aerial farmland africa"
+  ]
+ },
+ {
+  "file": "service-bulk-warehouse.jpg",
+  "w": 900,
+  "h": 630,
+  "orientation": "landscape",
+  "query": "forklift warehouse loading",
+  "queries": [
+   "forklift warehouse loading"
+  ]
+ },
+ {
+  "file": "service-processing-grading.jpg",
+  "w": 900,
+  "h": 630,
+  "orientation": "landscape",
+  "query": "seed sorting machine",
+  "queries": [
+   "seed sorting",
+   "sorting machine",
+   "grain sorting",
+   "seeds"
+  ]
+ },
+ {
+  "file": "service-quality-lab.jpg",
+  "w": 900,
+  "h": 630,
+  "orientation": "landscape",
+  "query": "laboratory samples scale",
+  "queries": [
+   "laboratory samples scale"
+  ]
+ },
+ {
+  "file": "service-packaging-bulk.jpg",
+  "w": 900,
+  "h": 630,
+  "orientation": "landscape",
+  "query": "cardboard boxes pallets export",
+  "queries": [
+   "cardboard boxes pallets export"
+  ]
+ },
+ {
+  "file": "service-private-label-packs.jpg",
+  "w": 900,
+  "h": 630,
+  "orientation": "landscape",
+  "query": "packaging design labels",
+  "queries": [
+   "packaging design labels"
+  ]
+ },
+ {
+  "file": "service-export-port.jpg",
+  "w": 900,
+  "h": 630,
+  "orientation": "landscape",
+  "query": "loading shipping container",
+  "queries": [
+   "loading shipping container"
+  ]
+ }
+]
