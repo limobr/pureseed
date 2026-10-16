@@ -4,7 +4,10 @@ export const site = {
   tagline: "Value-added agricultural products from Africa to global markets",
   email: "sales@pureseed.com",
   phone: "+254712345678",
+  phoneHref: "tel:+254712345678",
+  whatsappNumber: "254712345678",
   whatsapp: "https://wa.me/254712345678",
+  locality: "Nairobi, Kenya",
   map: "https://maps.app.goo.gl/jef1ZzAb1mC2UGSPA",
 };
 
@@ -17,7 +20,22 @@ export const ogImage = "/images/og-default.jpg";
 
 export type Faq = { q: string; a: string };
 
+export type CategoryId = "seeds-oil" | "nuts" | "honey";
+export type FormatId = "bulk" | "retail";
+
+export const categories: { id: CategoryId; name: string; short: string }[] = [
+  { id: "seeds-oil", name: "Sesame seeds and oil", short: "Seeds and oil" },
+  { id: "nuts", name: "Cashew nuts and groundnuts", short: "Nuts" },
+  { id: "honey", name: "Organic honey", short: "Honey" },
+];
+
+export const formats: { id: FormatId; label: string }[] = [
+  { id: "bulk", label: "Bulk supply" },
+  { id: "retail", label: "Retail and private label" },
+];
+
 export type Product = {
+  category: CategoryId; formats: FormatId[];
   slug: string; name: string; headline: string; intro: string[]; image: string; gallery: string;
   highlights: string[]; blockTitle: string; blockBody: string[]; form: string; applications: string;
   uses: string[]; specs: string[]; packaging: string[]; faq: Faq[];
@@ -25,6 +43,7 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    category: "seeds-oil", formats: ["bulk"],
     slug: "sesame-seeds", name: "Sesame Seeds", headline: "Premium Sesame Seeds for Global Markets",
     image: "/images/sesame-seeds.jpg", gallery: "/images/sesame-seeds-field.jpg",
     intro: [
@@ -44,6 +63,7 @@ export const products: Product[] = [
     faq: [{"q": "Which types of sesame seed can you supply?", "a": "Tell us the colour, whether you need hulled or unhulled seed, and the purity you require. We confirm what is available for the current season before we quote, so you only receive offers we can fulfil."}, {"q": "Can I see a sample before I order?", "a": "Yes, samples can be discussed once we know your specification and destination. Send an enquiry and mention that you would like a sample."}, {"q": "Do you supply seed for oil extraction as well as for food use?", "a": "Yes. Seed for crushing and seed for direct food use are specified differently, so tell us the end use and we will propose the right preparation."}],
   },
   {
+    category: "seeds-oil", formats: ["bulk", "retail"],
     slug: "sesame-oil", name: "Sesame Oil", headline: "Value-Added Sesame Oil for Global Markets",
     image: "/images/sesame-oil.jpg", gallery: "/images/sesame-oil-pressing.jpg",
     intro: [
@@ -63,6 +83,7 @@ export const products: Product[] = [
     faq: [{"q": "Can you supply sesame oil under my own brand?", "a": "Yes, through our private-label programme. We work with you on the oil specification, bottle or pack format, labelling and export preparation. See the Private Label page for how a project runs."}, {"q": "What is the difference between cold-pressed and roasted sesame oil?", "a": "Cold-pressed oil is pressed without roasting the seed and has a lighter, milder flavour. Roasted oil is pressed from toasted seed and has a deeper, nuttier flavour and darker colour. Tell us which profile your customers expect."}, {"q": "Do you sell small retail quantities?", "a": "Our focus is bulk, wholesale and private-label supply for businesses. If you are planning a retail range, send an enquiry with the pack sizes and volumes you have in mind."}],
   },
   {
+    category: "nuts", formats: ["bulk", "retail"],
     slug: "cashew-nuts", name: "Cashew Nuts", headline: "Processed Cashew Nuts for Bulk and Packaged Markets",
     image: "/images/cashew-nuts.png", gallery: "/images/cashew-nuts-processing.jpg",
     intro: [
@@ -79,6 +100,7 @@ export const products: Product[] = [
     faq: [{"q": "What cashew grades do you offer?", "a": "Cashew kernels are traded in whole, split and piece grades with different sizes and colours. Tell us the grade you use today and we will confirm what we can supply."}, {"q": "Is the product raw or roasted?", "a": "Raw processed kernels are the usual starting point for export. If you need roasted or flavoured product, mention it in your enquiry so we can discuss the options."}, {"q": "Can cashews be packed for retail?", "a": "Yes. We can discuss retail-ready formats and private-label packaging alongside bulk supply."}],
   },
   {
+    category: "nuts", formats: ["bulk", "retail"],
     slug: "groundnuts", name: "Groundnuts (Peanuts)", headline: "Quality Groundnuts Prepared for Global Markets",
     image: "/images/groundnuts.png", gallery: "/images/groundnuts-harvest.jpg",
     intro: [
@@ -95,6 +117,7 @@ export const products: Product[] = [
     faq: [{"q": "How do you handle aflatoxin requirements?", "a": "Aflatoxin limits differ between markets and are a key concern for groundnuts. Tell us your destination and the limits that apply, and we will discuss the testing and documentation needed before we quote."}, {"q": "Do you supply shelled or in-shell groundnuts?", "a": "Specify which you need. We cover the options available for the current season when we respond to your enquiry."}, {"q": "Can I order groundnuts for peanut butter production?", "a": "Yes. Tell us the kernel type, blanching requirements and volumes so we can propose a suitable preparation."}],
   },
   {
+    category: "honey", formats: ["bulk", "retail"],
     slug: "organic-honey", name: "Organic Honey", headline: "Natural African Organic Honey",
     image: "/images/organic-honey.png", gallery: "/images/organic-honey-apiary.jpg",
     intro: [
@@ -247,3 +270,11 @@ export const nextSteps = [
   { h: "We confirm the details", p: "We agree specification, packaging and delivery terms, and discuss samples where relevant." },
   { h: "We plan production and shipment", p: "Once terms are agreed we schedule production, quality checks, packaging and export documentation." },
 ];
+
+export const pageLinks = {
+  contact: "/contact-us",
+  shop: "/shop",
+  services: "/our-services",
+  about: "/about-us",
+  portfolio: "/portfolio",
+};

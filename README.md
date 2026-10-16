@@ -1,6 +1,6 @@
 # PureSeed web (Next.js 15, App Router)
 
-Rebuild of the former agrixco.com site (WordPress/Elementor) for speed and SEO. Fully static pages, no CSS framework, `next/image` (AVIF/WebP), `next/font`. Client JS is limited to the contact form, print button, mobile menu, and two tiny effect components (`Media`, `Reveal`).
+Rebuild of the former agrixco.com site (WordPress/Elementor) for speed and SEO. Fully static pages, Tailwind CSS 3 (same stack and design system as the Atmaara Smart Locks site), `next/image` (AVIF/WebP with blur previews), self-hosted Schibsted Grotesk via `next/font/local`, light/dark theme, typo-tolerant site search.
 
 ## Run
 ```bash
@@ -11,12 +11,10 @@ npm run build && npm start
 ```
 
 ## Design system
-All tokens live at the top of `app/globals.css` (colours, radii, shadow, section rhythm). Fonts: Fredoka (headings) and Inter (body) via `next/font`.
-- Amber `#C58A17` is for buttons, bars and icons only, never small text (about 3:1 on white). Text on amber uses `--on-amber`.
-- `components/Media.tsx`: every photo goes through it. Fixed `aspect-ratio` (no layout shift), `next/image` lazy loading, `priority` for the hero, fade-in, opt-in `zoom` (1.03x).
-- `components/Reveal.tsx`: scroll fade-and-rise using IntersectionObserver. Content is visible without JS and under reduced motion.
+Colour tokens are CSS variables at the top of `app/globals.css` (light and dark), mapped to Tailwind names in `tailwind.config.ts`. The palette is PureSeed forest green; change the RGB values there to re-colour the whole site. Shared patterns: `.btn-*` buttons, `swipeList` rows on phones that become grids from `md`, dark hero, `bg-mist` tinted bands, `ChipScroller` filters.
 
 ## Structure
+- `components/`: Header, ShopMenu, HeaderSearch/HeroSearch (search over products, services and pages), Catalog (search, category chips, sort), ProductCard, Gallery, NeedTiles/NeedRow (home hero), WhatsAppFab (mobile Call/WhatsApp bar).
 - `lib/data.ts`: ALL site copy, products, services, contact details. Edit content here.
 - `app/`: routes. URLs match the old site (`/shop`, `/product/[slug]`, `/our-services`, `/service/[slug]`, `/about-us`, `/contact-us`) so existing Google rankings carry over. New: `/portfolio`.
 - `app/sitemap.ts`, `app/robots.ts`, JSON-LD (Organization, Product), per-page metadata and canonicals.

@@ -1,25 +1,26 @@
-import Link from "next/link";
-import CTA from "@/components/CTA";
-import Media from "@/components/Media";
-import Reveal from "@/components/Reveal";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Catalog } from "@/components/Catalog";
+import { JsonLd } from "@/components/JsonLd";
 import { meta } from "@/lib/seo";
 import { products } from "@/lib/data";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata = meta("Products", "Sesame seeds, sesame oil, cashew nuts, groundnuts and organic honey: sourced in Africa, processed and prepared for international buyers.", "/shop");
 
 export default function Shop() {
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "PureSeed products",
+    itemListElement: products.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: absoluteUrl(`/product/${p.slug}`), name: p.name })),
+  };
   return (
     <>
-      <section className="page-hero"><div className="wrap"><h1>Our products</h1><p className="lead">A focused portfolio of agricultural products sourced, processed, and prepared for international buyers.</p></div></section>
-      <section className="sec"><div className="wrap"><Reveal className="plist" anim="stagger">
-        {products.map((p) => (
-          <Link key={p.slug} href={`/product/${p.slug}`} className="prow">
-            <Media src={p.image} alt={p.name} ratio="1/1" fit="contain" zoom sizes="170px" />
-            <div><h2>{p.name}</h2><p>{p.intro[0]}</p><span className="more">View details &amp; request a quote</span></div>
-          </Link>
-        ))}
-      </Reveal></div></section>
-      <CTA label="Request a quote" />
+      <JsonLd data={ld} />
+      <div className="mx-auto max-w-page px-4 pt-4 sm:px-6 sm:pt-8 lg:px-8 lg:pt-12">
+        <Breadcrumbs items={[{ name: "Products", path: "/shop" }]} />
+      </div>
+      <Catalog products={products} headingLevel="h1" />
     </>
   );
 }

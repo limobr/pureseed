@@ -1,46 +1,78 @@
-import type { Metadata } from "next";
-import { Fredoka, Inter } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ScrollState from "@/components/ScrollState";
-import WhatsAppFab from "@/components/WhatsAppFab";
-import { logo, ogImage, site } from "@/lib/data";
+import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { JsonLd } from "@/components/JsonLd";
+import { logo, ogImage, products, site } from "@/lib/data";
+import { buildSearchDocs } from "@/lib/searchIndex";
+import { themeInitScript } from "@/lib/theme";
 
-const display = Fredoka({ subsets: ["latin"], variable: "--f-display", display: "swap" });
-const body = Inter({ subsets: ["latin"], variable: "--f-body", display: "swap" });
+// Self-hosted, latin subset only. next/font preloads it and sizes the fallback to avoid layout shift.
+const sans = localFont({
+  src: "./fonts/schibsted-grotesk-latin-wght-normal.woff2",
+  variable: "--font-sans",
+  weight: "400 900",
+  display: "swap",
+  fallback: ["system-ui", "Segoe UI", "Roboto", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: "PureSeed | Sesame, Cashew, Groundnuts & Honey Processor and Exporter", template: "%s | PureSeed" },
-  description: "PureSeed sources, processes and exports sesame seeds, sesame oil, cashew nuts, groundnuts and organic honey from Tanzania and Africa. Bulk supply and private label.",
+  description:
+    "PureSeed sources, processes and exports sesame seeds, sesame oil, cashew nuts, groundnuts and organic honey from Tanzania and Africa. Bulk supply and private label.",
+  applicationName: site.name,
   icons: { icon: "/images/favicon.png" },
-  openGraph: { images: [ogImage] },
-  robots: { index: true, follow: true, googleBot: { "max-image-preview": "large" } },
+  openGraph: { type: "website", siteName: site.name, images: [ogImage] },
+  robots: { index: true, follow: true, googleBot: { "max-image-preview": "large", "max-snippet": -1 } },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B140F" },
+  ],
 };
 
 const org = {
-  "@context": "https://schema.org", "@type": "Organization", name: site.name, url: site.url, logo: `${site.url}${logo}`,
-  email: site.email, telephone: site.phone,
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  url: site.url,
+  logo: `${site.url}${logo}`,
+  email: site.email,
+  telephone: site.phone,
   address: { "@type": "PostalAddress", addressLocality: "Nairobi", addressCountry: "KE" },
   hasMap: site.map,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
+    <html lang="en" className={sans.variable} suppressHydrationWarning>
       <head>
-        {/* Lets CSS know JS is running, so image fade-ins can never hide content for no-JS visitors. */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body>
-        <a href="#main" className="skip">Skip to content</a>
-        <Header />
-        <main id="main">{children}</main>
+      <body className="flex min-h-screen flex-col font-sans">
+        <JsonLd data={org} />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-bg focus:px-4 focus:py-2 focus:text-ink focus:ring-2 focus:ring-accent"
+        >
+          Skip to content
+        </a>
+        <Header
+          shopLinks={products.map((p) => ({ href: `/product/${p.slug}`, name: p.name, hint: p.headline }))}
+          searchDocs={buildSearchDocs()}
+        />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <Footer />
-        <WhatsAppFab />
-        <ScrollState />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
+        <WhatsAppFab number={site.whatsappNumber} phoneHref={site.phoneHref} />
       </body>
     </html>
   );
